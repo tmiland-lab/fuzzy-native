@@ -4,12 +4,12 @@
       'target_name': 'fuzzy-native',
       'include_dirs': [ '<!(node -e "require(\'nan\')")' ],
       'cflags': [
-        '-std=c++17',
+        '-std=c++20',
         '-O3',
       ],
       'xcode_settings': {
         'OTHER_CPLUSPLUSFLAGS': [
-          '-std=c++17',
+          '-std=c++20',
           '-O3',
           '-stdlib=libc++',
         ],
@@ -27,6 +27,11 @@
             4267,  # conversion from 'size_t' to 'int', possible loss of data
             4530,  # exception unwinding
           ],
+          'msvs_settings': {
+            'VCCLCompilerTool': {
+              'AdditionalOptions': '/std:c++20'
+            }
+          }
         }],
         ['OS == "linux"', {
           'ldflags': [
